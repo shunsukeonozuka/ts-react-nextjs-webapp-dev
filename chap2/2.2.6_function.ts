@@ -27,3 +27,18 @@ function formatName(name: string): string {
 }
 printName2("Takuya", formatName);
 // >Takuya san
+
+/* アロー関数 */
+let sayHello5 = (name: string): string => `Hello${name}`;
+
+/* 引数が文字列、戻り値が配列の関数を引数に取る */
+function genBirdsInfo(name: string): string[] {
+    return name.split(",");
+}
+function singBirds(birdInfo: (x: string) => string[]): string {
+    return birdInfo("hato,kiji")[0] + " piyo piyo";
+}
+console.log(singBirds(genBirdsInfo));
+// >"hato piyo piyo"
+// console.log(singBirds("dobato"));
+// >型 'string' の引数を型 '(x: string) => string[]' のパラメーターに割り当てることはできません。
